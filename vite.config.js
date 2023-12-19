@@ -11,13 +11,8 @@ export default defineConfig({
     }
   },
 
-  base: '/culqi-frontend-challenge/',
-  build: {
-    outDir: "./docs",
-    assetsInlineLimit:0,
-    emptyOutDir: true,
-    manifest: false,
-  },
+  base: '/',
+ 
   plugins: [
     vue(),
     VitePWA({
