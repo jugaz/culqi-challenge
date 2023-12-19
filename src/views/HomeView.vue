@@ -1,12 +1,16 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { getActualBalance } from '@/composables/useApi'
+import { getActualBalance, setupInterceptors  } from '@/composables/useApi'
 import { useHomeStore } from '@/stores/home' 
+import { useRouter } from 'vue-router'
 
 import Header from '@/components/headerCulqi.vue'
 import Loading from '@/components/loadingCulqi.vue'
 import Filtro from '@/components/filtroCulqi.vue'
 import BoxCulqi from '@/components/boxCulqi.vue'
+
+const router = useRouter()
+setupInterceptors(router)
 
 const storeHome = useHomeStore()
 const loading = ref(false)
@@ -25,12 +29,16 @@ const loadPrice = async () => {
   <Header :configHeader="{'name':'Recargas y pagos'}"/>
 
   <section class="mt-[1rem] flex flex-col">
-    <span class="text-[#6a7789] text-[13px]"><b>Saldo Virtual</b></span>
+    <div class="flex items-center">
+      <span class="text-[#6a7789] text-[13px]"><b>Saldo Virtual</b></span>
+      <img src="@/assets/icons/info.svg" class="w-[15px] h-[15px] ml-[5px]" width="25" height="25" alt="Icono Info"/>
+    </div>
+  
     <div class="flex items-center" :class="{'mb-[5px]': loading}">
       <span :class="{'mr-[15px]': loading}" class="text-[30px] text-[#151929]"><b>{{ balanceDisplay }}</b></span>
       <Loading v-if="loading"/>
 
-      <img @click="loadPrice" src="@/assets/icons/load.svg" class="w-[20px] h-[20px] ml-[15px] cursor-pointer" width="25" height="25" alt="Icono Cargando"/>
+      <img @click="loadPrice" src="@/assets/icons/load.svg" class="w-[15px] h-[15px] ml-[15px] cursor-pointer" width="25" height="25" alt="Icono Cargando"/>
     </div>
   </section>
 

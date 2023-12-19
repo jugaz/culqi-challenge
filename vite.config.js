@@ -15,7 +15,7 @@ export default defineConfig({
     vue(),
     VitePWA({
       manifest: {
-        "name": "Mi Aplicación",
+        "name": "Culqi Challenge",
         "short_name": "App",
         "description": "Mi aplicación PWA con Vite y Vue",
         "start_url": "/",

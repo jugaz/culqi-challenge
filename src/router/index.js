@@ -3,7 +3,7 @@ import { lazyView } from "@/composables/useShared";
 
 const HomeView = lazyView("HomeView");
 const RechargeView = lazyView("RechargeView");
-const ErrorView401 = lazyView("ErrorView401");
+const ErrorView = lazyView("ErrorView");
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,9 +19,9 @@ const router = createRouter({
       component: RechargeView
     },
     {
-      path: '/error401',
-      name: 'error401',
-      component: () => ErrorView401
+      path: '/error-401',
+      name: 'error-401',
+      component: ErrorView 
     },
 
     { path: "/:pathMatch(.*)*", redirect: "/" },

@@ -1,8 +1,8 @@
 <template>
-    <div class="w-full h-[100vh] flex flex-col items-center justify-center">
-        <img src="@/assets/images/candado.webp" class="w-[250px]" alt="Error 401" />
-	    <h1 class="text-[3em] text-white text">401 Unauthorized</h1>
-    </div>
+  <div class="w-full h-[100vh] flex flex-col items-center justify-center">
+    <img src="@/assets/images/candado.webp" class="w-[250px]" alt="Error 401" />
+    <h1 class="text-[3em] text-white text">401 Unauthorized</h1>
+  </div>
     
 </template>
 

@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { getGetProviders } from '@/composables/useApi'
+import { getGetProviders, setupInterceptors } from '@/composables/useApi'
 import { useRechargeStore } from '@/stores/recharge' 
 
 import Header from '@/components/headerCulqi.vue'
@@ -9,9 +9,12 @@ import List from '@/components/listCulqi.vue'
 import Filtro from '@/components/filtroCulqi.vue'
 import Buscar from '@/components/buscarCulqi.vue'
 
+
+
 const selectedFilter = ref(null)
 
 const router = useRouter()
+setupInterceptors(router)
 const storeRecharge = useRechargeStore()
 const searchInput = ref('')
 const searchResults = ref([])
